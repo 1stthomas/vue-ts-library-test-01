@@ -1,20 +1,35 @@
 {
   "name": "vue-ts-library-test-01",
-  "private": true,
-  "version": "0.0.0",
+  "version": "0.0.5",
   "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/vue-ts-library-test-01.umd.cjs",
+  "module": "./dist/vue-ts-library-test-01.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/vue-ts-library-test-01.js",
+      "require": "./dist/vue-ts-library-test-01.umd.cjs"
+    },
+    "./style.css": "./dist/style.css"
+  },
   "scripts": {
+    "build": "vue-tsc --declaration --emitDeclarationOnly && vite build",
     "dev": "vite",
-    "build": "vue-tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "types": "vue-tsc "
   },
   "dependencies": {
     "vue": "^3.4.21"
   },
   "devDependencies": {
+    "@types/node": "^20.12.7",
     "@vitejs/plugin-vue": "^5.0.4",
     "typescript": "^5.2.2",
     "vite": "^5.2.0",
+    "vite-plugin-dts": "^3.9.0",
     "vue-tsc": "^2.0.6"
   }
 }
